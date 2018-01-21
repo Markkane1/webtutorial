@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+
+		<!-- metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="generator" content="S5" />
+		<meta name="version" content="S5 1.1" />
+		<meta name="author" content="Hafiz Muhammad Asif" />
+		<meta name="company" content="University of Lahore" />
+		<meta name="description"
+		 content="Lecture slides to accompany Web Programming Step by Step, a college textbook on web programming." />
+		<meta name="keywords"
+		 content="web programming, html, xhtml, css, style sheets, layout, w3c, php, forms, " />
+
+		<!-- configuration parameters -->
+		<meta name="defaultView" content="slideshow" />
+		<meta name="controlVis" content="hidden" />
+
+		<!-- style sheet links -->
+		<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+		<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+		<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+		<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+
+		<!-- S5 JS -->
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js" type="text/javascript"></script>
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js" type="text/javascript"></script>
+
+		<script src="ui/default/slides.js" type="text/javascript"></script>
+		<script src="resources/slides.js" type="text/javascript"></script>
+		<script src="resources/DrawingOverlay.js" type="text/javascript"></script>
+
+
+		<title>Web Programming Step by Step, Lecture XX: Web Design</title>
+	</head>
+
+	<body>
+		<div class="layout">
+			<div id="controls"><!-- DO NOT EDIT --></div>
+			<div id="currentSlide"><!-- DO NOT EDIT --></div>
+			<div id="header"></div>
+			<div id="footer">
+				<h1><em>Web Programming Step by Step</em>, Lecture XX</h1>
+				<h2>Web Design</h2>
+			</div>
+		</div>
+
+		<div class="presentation">
+			<div class="slide">
+				<h1><a href="http://www.facebook.com/ali.asif67">Web Programming Step by Step</a></h1>
+				<h3>Lecture XX <br /> Web Design</h3>
+
+				<p class="license">
+					Except where otherwise noted, the contents of this presentation are Copyright 2018 Hafiz Muhammad Asif.
+				</p>
+
+				<div class="w3c">
+					<a href="http://validator.w3.org/check/referer"><img src="images/w3c-xhtml11.png" alt="Valid XHTML 1.1" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/w3c-css.png" alt="Valid CSS!" /></a>
+				</div>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>What is usability?</h1>
+
+				<ul>
+					<li><span class="term">usability</span>: the effectiveness with which users can achieve tasks in one software environment</li>
+					<li>studying and improving usability is part of <span class="term">Human-Computer Interaction</span> (HCI)</li>
+				</ul>
+
+				<p style="text-align: center"><img src="images/dilbert.png" alt="Dilbert" /></p>
+			</div>
+
+
+			<div class="slide">
+				<h1>Visibility and feedback</h1>
+
+				<ul>
+					<li><span class="term">visibility</span>: ability for user to find controls that are meant to be interacted with
+						<ul>
+							<li>Where are they?</li>
+							<li>What is their state?  ("Is this setting on or off?")</li>
+						</ul>
+					</li>
+					<li><span class="term">feedback</span>: response from the control to the user before, during, or after an interaction</li>
+				</ul>
+
+				<p style="text-align: center"><img src="images/visibility.png" alt="visibility example" /></p>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Common web usability problems</h1>
+
+				<ul>
+					<li>cluttered or otherwise poor layout</li>
+					<li>requires horizontal scrolling, or makes assumptions about user's screen size</li>
+					<li>poorly chosen colors</li>
+					<li>uses frames</li>
+					<li>uses splash screen(s)</li>
+					<li>poor or missing navigation controls (Back, Forward, Home)</li>
+					<li>text is not scannable (can't be read quickly)</li>
+				</ul>
+			</div>
+
+
+			<div class="slide">
+				<h1>Content usability problems</h1>
+
+				<ul>
+					<li>most important content isn't on the first page / screenful</li>
+					<li>nondescript headings</li>
+					<li>too many ads (or things that appear to be ads)</li>
+					<li>important site content is contained in PDF documents</li>
+					<li>isn't designed to be easily indexed by a search engine <br />
+					(HTML title, meta tags, page text, link text, etc.)</li>
+					<li>tiny thumbnails of detailed large photos: <img style="vertical-align: top" src="images/tiny_thumbnail.png" alt="tiny thumbnail" /></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Users do not read</h1>
+
+				<p style="text-align: center;"><img src="images/toomuchtext_1.png" alt="too much text" /> vs. <img src="images/toomuchtext_2.png" alt="better text" /></p>
+
+				<ul>
+					<li>this also often applies to CSE students</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Link usability problems</h1>
+
+				<ul>
+					<li>links that don't say where they go</li>
+					<li>badly chosen link text (such as "Click <span style="text-decoration: underline">here</span> for more info")</li>
+					<li>links that forcibly open a new browser window</li>
+					<li>links opened by complex Javascript needlessly</li>
+					<li>visited links don't appear in a different color</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Feature usability problems</h1>
+
+				<ul>
+					<li>poorly performing site search</li>
+					<li>having a web search feature (why??)</li>
+					<li>not having a site map or other means to navigate the site</li>
+					<li>relying on non-standard plugins or browser versions (e.g. Overly reliant on Flash, Java applets, etc.)</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Web design suggestions</h1>
+
+				<ul>
+					<li>place your name and logo on every page and make the logo a link to the home page</li>
+					<li>provide search if the site has more than 100 pages</li>
+					<li>write straightforward and simple headlines and page titles that clearly explain what the page is about</li>
+					<li>structure the page to facilitate scanning and help users ignore large chunks of the page in a single glance: for example, use grouping and subheadings to break a long list into several smaller units</li>
+					<li>instead of cramming everything about a product or topic into a single, infinite page, use hypertext to structure the content space into a starting page that provides an overview and several secondary pages that each focus on a specific topic</li>
+					<li>use link titles to provide users with a preview of where each link will take them, before they have clicked on it</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>More web design suggestions</h1>
+
+				<ul>
+					<li>Use relevance-enhanced image reduction when preparing small photos and images: instead of simply resizing the original image to a tiny and unreadable thumbnail, zoom in on the most relevant detail and use a combination of cropping and resizing.</li>
+					<li>Ensure that all important pages are accessible for users with disabilities, especially blind users</li>
+					<li>Do the same as everybody else: if most big websites do something in a certain way, then follow along since users will expect things to work the same on your site</li>
+					<li>Jakob's Law of the Web User Experience: users spend most of their time on other sites, so that's where they form their expectations for how the Web works</li>
+					<li>Test your design with real users as a reality check. People do things in odd and unexpected ways, so even the most carefully planned project will learn from usability testing. </li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Sites about web design</h1>
+
+				<ul>
+					<li><a href="http://alistapart.com/">A List Apart</a></li>
+					<li><a href="http://www.cssplay.co.uk/">CSS Play</a></li>
+					<li><a href="http://meyerweb.com/eric/css/edge/">css/edge</a></li>
+					<li><a href="http://www.designbyfire.com/">Design by Fire</a></li>
+					<li><a href="http://www.zeldman.com/">Jeffrey Zeldman Presents</a></li>
+					<li><a href="http://www.quirksmode.org/">QuirksMode</a></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Writing for the web</h1>
+
+				<ul>
+					<li>People read web page text differently than they read books, etc.</li>
+					<li>Writing for the web includes:
+						<ul>
+						<li>subheads</li>
+						<li>bulleted lists </li>
+						<li>highlighted keywords </li>
+						<li>short paragraphs </li>
+						<li>the "inverted pyramid"</li>
+						<li>(put the most newsworthy information at the top, and then the remaining information follows in order of importance, with the least important at the bottom)</li>
+						<li>a simple writing style</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Web pages that suck</h1>
+
+				<p>What's wrong with each of these web sites?</p>
+
+				<ul style="font-size: smaller">
+					<li><a href="http://www.envy-hair.co.uk/index.html">http://www.envy-hair.co.uk/index.html</a></li>
+					<li><a href="http://www.corvalliscommunitypages.com/">http://www.corvalliscommunitypages.com/</a></li>
+					<li><a href="http://www.pigletscatering.co.uk/">http://www.pigletscatering.co.uk/</a></li>
+					<li><a href="http://www.bigbearparties.com/">http://www.bigbearparties.com/</a></li>
+					<li><a href="http://www.developingwebs.net/">http://www.developingwebs.net/</a></li>
+					<li><a href="http://www.bobmarshall.com/">http://www.bobmarshall.com/</a></li>
+					<li><a href="http://www.orchy.com/dictionary/">http://www.orchy.com/dictionary/</a></li>
+					<li><a href="http://www.delmarvadatacenter.com/main.html">http://www.delmarvadatacenter.com/main.html</a></li>
+					<li><a href="http://www.videosphotosanddjs.com/">http://www.videosphotosanddjs.com/</a></li>
+					<li>credit: <a href="http://bad.webpagesthatsuck.com/">webpagesthatsuck.com</a></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Ajax usability</h1>
+
+				<p style="text-align: center;"><img src="images/gmail_loading.png" alt="Gmail loading" /></p>
+
+				<ul>
+					<li>since Ajax requests happen in the background, users may not know the page is loading</li>
+					<li>well-designed web sites give visual cues to the user so they know to wait</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Forms and usability</h1>
+
+				<ul>
+					<li>client-side validation</li>
+					<li>lighting up required elements left blank or filled out incorrectly</li>
+					<!-- this is just a good tip in general; elevate to its own slide, or earlier? -->
+					<li>avoiding <code>alert</code> unless absolutely necessary</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Search Engine Optimization (SEO)</h1>
+
+				<ul>
+					<li>get people to link to your site (particularly popular sites!)</li>
+					<li>use relevant keywords in link text
+						<ul>
+							<li>example: My friend <a href="http://faculty.washington.edu/stepp/">Marty Stepp</a> is a swell guy!</li>
+						</ul>
+					</li>
+					<li>set descriptive <code>meta</code> tags</li>
+					<li>use a site URL and page title that contains the keywords you want to match</li>
+					<li>don't do "black-hat" stuff (link farms, hidden text, etc.)</li>
+					<li>use Google Webmaster Tools: <a href="https://www.google.com/webmasters/tools/">https://www.google.com/webmasters/tools/</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+		</div>
+
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+					document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var pageTracker = _gat._getTracker("UA-2729135-5");
+					pageTracker._initData();
+					pageTracker._trackPageview();
+				}
+			}
+		</script>
+	</body>
+
+<!-- Mirrored from courses.cs.washington.edu/courses/cse190m/10su/lectures/slides/lectureXX-web-design.shtml by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jan 2018 10:58:44 GMT -->
+</html>
+

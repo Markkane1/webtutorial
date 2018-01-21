@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+
+		<!-- metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="generator" content="S5" />
+		<meta name="version" content="S5 1.1" />
+		<meta name="author" content="Hafiz Muhammad Asif" />
+		<meta name="company" content="University of lahore" />
+		<meta name="description"
+		 content="Lecture slides to accompany Web Programming Step by Step, a college textbook on web programming." />
+		<meta name="keywords"
+		 content="web programming, html, xhtml, css, style sheets, layout, w3c, php, forms, " />
+
+		<!-- configuration parameters -->
+		<meta name="defaultView" content="slideshow" />
+		<meta name="controlVis" content="hidden" />
+
+		<!-- style sheet links -->
+		<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+		<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+		<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+		<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+
+		<!-- S5 JS -->
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js" type="text/javascript"></script>
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js" type="text/javascript"></script>
+
+		<script src="ui/default/slides.js" type="text/javascript"></script>
+		<script src="resources/slides.js" type="text/javascript"></script>
+		<script src="resources/DrawingOverlay.js" type="text/javascript"></script>
+
+
+		<title>Web Programming Step by Step, Lecture XX: Multimedia</title>
+	</head>
+
+	<body>
+		<div class="layout">
+			<div id="controls"><!-- DO NOT EDIT --></div>
+			<div id="currentSlide"><!-- DO NOT EDIT --></div>
+			<div id="header"></div>
+			<div id="footer">
+				<h1><em>Web Programming Step by Step</em>, Lecture XX</h1>
+				<h2>Multimedia</h2>
+			</div>
+		</div>
+
+		<div class="presentation">
+			<div class="slide">
+				<h1><a href="http://www.facebook.com/ali.asif67">Web Programming Step by Step</a></h1>
+				<h3>Lecture XX <br /> Multimedia</h3>
+
+				<p class="license">
+					Except where otherwise noted, the contents of this presentation are Copyright 2018 Hafiz Muhammad Asif.
+				</p>
+
+				<div class="w3c">
+					<a href="http://validator.w3.org/check/referer"><img src="images/w3c-xhtml11.png" alt="Valid XHTML 1.1" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/w3c-css.png" alt="Valid CSS!" /></a>
+				</div>
+			</div>
+			
+			
+			
+			<div class="slide noprint">
+				<h1>Multimedia is fun</h1>
+
+				<object width="425" height="350" type="application/x-shockwave-flash" data="http://www.youtube.com/v/eKgPY1adc0A">
+					<param name="wmode" value="transparent" />
+				</object>
+			</div>
+
+
+			<!--
+			flash plugin clsid
+			classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+
+			http://alistapart.com/articles/byebyeembed
+			-->
+
+
+			<!--
+			<object type="video/x-ms-wmv"
+			  data="http://www.sarahsnotecards.com/catalunyalive/fishstore.wmv"
+			  width="320" height="260">
+
+			  <param name="src"
+				value="http://www.sarahsnotecards.com/catalunyalive/fishstore.wmv" />
+
+			  <param name="autostart" value="true" />
+			  <param name="controller" value="true" />
+			</object>
+			-->
+
+
+			<!--
+			<embed width="425" height="350" type="application/x-shockwave-flash" src="http://www.youtube.com/v/eKgPY1adc0A" wmode="transparent" />
+			-->
+
+
+
+			<div class="slide">
+				<h1>File formats</h1>
+
+				<ul>
+					<li>some differ in features (animation, 5.1 stereo, transparency)</li>
+					<li>many multimedia formats use <a href="http://en.wikipedia.org/wiki/Data_compression"><span class="term">compression</span></a> to reduce file size
+						<ul>
+							<li>compression algorithms are also called <a href="http://en.wikipedia.org/wiki/Codec"><span class="term">codecs</span></a> (<a href="http://en.wikipedia.org/wiki/List_of_codecs">list</a></li>
+							<li>some compression algorithms are &quot;lossless&quot;, others are &quot;lossy&quot;</li>
+
+						</ul>
+					</li>
+					<li>some formats are patented (unusable in free software)</li>
+					<li>some formats are <a href="http://en.wikipedia.org/wiki/Encryption"><span class="term">encrypted</span></a> to protect information inside
+						<ul>
+							<li><a href="http://en.wikipedia.org/wiki/Digital_rights_management">Digital Rights Management</a> (DRM) restricts what user can do with file</li>
+							<li>can be broken: DVD (<a href="http://en.wikipedia.org/wiki/DeCSS">DeCSS</a>), HD DVD (<a href="http://blogs.guardian.co.uk/technology/archives/2007/05/02/digg_in_chaos_over_hd_dvd_crack.html">09f911029d74e35bd84156c5635688c0</a>)</li>
+
+						</ul>
+					</li>
+					<li>some formats are <span class="term"><a href="http://en.wikipedia.org/wiki/Streaming_media">streaming</a></span> (can play while downloading)</li>
+				</ul>
+
+				<div class="handout">
+					<ul>
+						<li>comparisons of formats: <a href="http://en.wikipedia.org/wiki/Comparison_of_container_formats">audio/video containers</a></li>
+					</ul>
+				</div>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Image file formats</h1>
+
+				<ul>
+					<li><a href="http://en.wikipedia.org/wiki/Jpeg">JPEG</a> : uses &quot;<a href="http://en.wikipedia.org/wiki/Lossy_compression">lossy compression</a>&quot;; small file size; good for photos</li>
+					<li><a href="http://en.wikipedia.org/wiki/Gif">GIF</a> : 256 colors; LZW <a href="http://en.wikipedia.org/wiki/Run_length_encoding">run-length encoding</a> lossless compression
+						<ul>
+							<li>allows <span class="term">transparency</span> (can see behind parts of image)</li>
+							<li>possible to create animated GIFs</li>
+						</ul>
+					</li>
+					<li><a href="http://en.wikipedia.org/wiki/Png">PNG</a> : free format created to avoid patent and color issues in GIF format; lossless compression, transparency</li>
+					<li>others: <a href="http://en.wikipedia.org/wiki/Tiff">TIFF</a>, <a href="http://en.wikipedia.org/wiki/Bitmap">BMP</a></li>
+					<li>image format comparisons: <a href="http://paleo.org/BKsamples/">text</a>, <a href="http://philip.greenspun.com/wtr/img-format/">photo</a>, <a href="http://en.wikipedia.org/wiki/Png">PNG</a></li>
+
+					<!--
+					http://www.ahuka.com/htmllevel1/optimizegif.html
+					http://www.ahuka.com/htmllevel1/optimizejpg.html
+					http://www.ahuka.com/htmllevel1/images.html
+					-->
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Raster and vector graphics</h1>
+
+				<ul>
+					<li>the image formats on the previous slide are <span class="term">raster</span> or <span class="term">bitmap</span> formats
+						<ul>
+							<li>they describe the pixels that should be drawn on the screen</li>
+						</ul>
+					</li>
+					<li><a href="http://en.wikipedia.org/wiki/Vector_graphics">vector</a> graphics formats such as <a href="http://en.wikipedia.org/wiki/SVG">SVG</a> describe shapes/lines rather than pixels
+						<ul>
+							<li>advantage: infinite precision; good for zooming, printing</li>
+							<li>disadvantage: not supported on all platforms; computationally expensive</li>
+						</ul>
+					</li>
+				</ul>
+
+				<div style="margin-top: 30px; text-align: center">
+					<img src="images/bitmap_vector.png" alt="bitmap vs. vector" />
+				</div>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Audio file formats</h1>
+
+				<ul>
+					<li><a href="http://en.wikipedia.org/wiki/Mp3">MP3</a> : uses lossy compression that eliminates inaudible sounds</li>
+					<li><a href="http://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> : Apple's iTunes audio file format</li>
+					<li><a href="http://en.wikipedia.org/wiki/Windows_Media_Audio">WMA</a> / ASF: Microsoft Windows Media Audio format</li>
+					<li><a href="http://en.wikipedia.org/wiki/Ogg">OGG</a> : Linux hippie audio/video format</li>
+					<li><a href="http://en.wikipedia.org/wiki/RealAudio">RA</a> / RM / RAM : Real Audio format</li>
+					<li>other formats: <a href="http://en.wikipedia.org/wiki/Wav">WAV</a> (MS), <a href="http://en.wikipedia.org/wiki/Au_file_format">AU</a> (Sun), <a href="http://en.wikipedia.org/wiki/Aiff">AIFF</a> / SND (Apple), <a href="http://en.wikipedia.org/wiki/Flac">FLAC</a></li>
+					<li>Sequenced Music: <a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface#MIDI_file_formats">MID</a>, <a href="http://en.wikipedia.org/wiki/MOD_(file_format)">MOD</a></li>
+				</ul>
+
+				<div class="handout">
+					<ul>
+						<li><a href="http://en.wikipedia.org/wiki/Comparison_of_audio_codecs">comparison of formats</a></li>
+					</ul>
+				</div>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Video file formats</h1>
+
+				<ul>
+					<li><a href="http://en.wikipedia.org/wiki/Mpeg">MPEG</a> : Motion Picture standard video format
+						<ul>
+							<li><a href="http://en.wikipedia.org/wiki/Dvd">DVDs</a> are encoded using MPEG-2</li>
+							<li><a href="http://en.wikipedia.org/wiki/HD_DVD">HD DVDs</a> are often compressed with MPEG-4 (<a href="http://en.wikipedia.org/wiki/H.264">H.264</a>) codec</li>
+						</ul>
+					</li>
+					<li><a href="http://en.wikipedia.org/wiki/.mov">MOV</a> : Apple's QuickTime movie format</li>
+					<li><a href="http://en.wikipedia.org/wiki/Wmv">WMV</a> / ASF : Microsoft's Windows Media Video format</li>
+					<li><a href="http://en.wikipedia.org/wiki/AVI">AVI</a> : classic Microsoft video format that can be encoded in many ways</li>
+					<li><a href="http://en.wikipedia.org/wiki/Swf">SWF</a> / FLC : Macromedia Flash multimedia format</li>
+					<li><a href="http://en.wikipedia.org/wiki/Real_Video">RV</a> : Real Video format</li>
+				</ul>
+
+				<div class="handout">
+					<ul>
+						<li>
+							comparisons of formats: <a href="http://www.uwm.edu/~price/video_file_format_comparison.html">1</a>,
+							<a href="http://en.wikipedia.org/wiki/Comparison_of_video_codecs">2</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+			<div class="slide">
+				<h1><a href="http://en.wikipedia.org/wiki/Macromedia_flash">Flash</a></h1>
+
+				<ul>
+					<li>format for graphics, video, audio developed by Macromedia/Adobe</li>
+					<li>widely used for many reasons:
+						<ul>
+							<li>supported in most major platforms/browsers</li>
+							<li>lightweight</li>
+							<li>can produce impressive interactive animated content</li>
+						</ul>
+					</li>
+					<li>downside: proprietary; editing software costs money (viewer is free)</li>
+					<li>examples: <a class="newwindow" href="examples/multimedia/duckhunt.swf">Duck Hunt</a>, <a href="http://www.homestarrunner.com/">Homestar Runner</a></li>
+				</ul>
+			</div>
+
+
+			<div class="slide">
+				<h1>Linking to multimedia files</h1>
+
+				<pre class="example html">
+<em>&lt;a href=&quot;video.avi&quot;&gt;</em>My video<em>&lt;/a&gt;</em>
+</pre>
+
+				<ul>
+					<li>browser has a list of default applications to associate with each file type</li>
+					<li>if it has an associated app, it will run it</li>
+					<li>some file types are displayed within the browser using <span class="term">plugins</span></li>
+					<li>if it doesn't know what to do, it will just download the file</li>
+					<li>try it yourself: <a class="newwindow" href="examples/multimedia/developers.mpeg">MPG</a>, <a class="newwindow" href="examples/multimedia/win98.qt">MOV</a>, <a class="newwindow" href="examples/multimedia/powerglove.wmv">WMV</a>, <a class="newwindow" href="examples/multimedia/flintstones.rm">RM</a>, <a class="newwindow" href="examples/multimedia/duckhunt.swf">SWF</a>, <a class="newwindow" href="examples/multimedia/winxp.wav">WAV</a>, <a class="newwindow" href="examples/multimedia/town.mid">MID</a></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>File types and browser plugins</h1>
+
+				<ul>
+					<li><span class="term">plugin</span>: helper app launched within the browser to view certain file types
+						<ul>
+							<li>examples: Flash player, QuickTime, Windows Media Player, Acrobat Reader, Java</li>
+						</ul>
+
+					</li>
+					<li><a class="newwindow" href="about:plugins">about:plugins</a> URL will show you list of plugins in Firefox</li>
+					<li>enter preferences, then choose Content, File Types, Manage...
+						<ul>
+							<li>can change which app/plugin will be used to open particular file types</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<div style="text-align: center">
+					<img src="images/plugins_list.png" alt="browser plugins" />
+				</div>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Embedded objects: <code><a href="http://www.w3schools.com/tags/tag_object.asp">&lt;object&gt;</a></code></h1>
+
+				<pre class="example html">
+&lt;object data=&quot;video.avi&quot; type=&quot;video/avi&quot;&gt;&lt;/object&gt;
+</pre>
+
+				<ul>
+					<li>replaces previous, non-standard <code>embed</code> element</li>
+					<li>attributes: <code>archive</code>, <code>classid</code>, <code>codebase</code>, <code>codetype</code>, <strong><code>data</code></strong>, <code>declare</code>, <strong><code>height</code></strong>, <code>name</code>, <code>standby</code>, <strong><code>type</code></strong>, <code>usemap</code>, <strong><code>width</code></strong></li>
+					<li><code>type</code> attribute specifies file's <a href="http://www.webmaster-toolkit.com/mime-types.shtml">MIME type</a></li>
+					<li>IE6 requires non-standard <code><a href="http://en.wikipedia.org/wiki/Clsid">classid</a></code> attribute to specify which plugin to use (<a href="http://www.castlecops.com/CLSID.html">list</a>)</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Parameters: <code><a href="http://www.w3schools.com/tags/tag_param.asp">&lt;param&gt;</a></code></h1>
+
+				<pre class="example html">
+&lt;object id="slider1" width=&quot;100&quot; height=&quot;50&quot;&gt;
+	<em>&lt;param name=&quot;BorderStyle&quot; value=&quot;thick&quot; /&gt;
+	&lt;param name=&quot;MousePointer&quot; value=&quot;hourglass&quot; /&gt;
+	&lt;param name=&quot;Enabled&quot; value=&quot;true&quot; /&gt;
+	&lt;param name=&quot;Min&quot; value=&quot;0&quot; /&gt;
+	&lt;param name=&quot;Max&quot; value=&quot;10&quot; /&gt;</em>
+&lt;/object&gt;
+</pre>
+
+				<ul>
+					<li>indicates a parameter to be passed to the embedded object</li>
+					<li>required <code>name</code> and <code>value</code> attributes tell the object what parameter this is and what value it should have</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Embedding Audio Files</h1>
+
+				<pre class="example html">
+&lt;object type=&quot;<var>MIME type</var>&quot; data=&quot;<var>fileURL</var>&quot;&gt;&lt;/object&gt;
+</pre>
+
+				<pre class="html">
+&lt;object type=<em>&quot;audio/wav&quot;</em> data=<em>&quot;yoda.wav&quot;&gt;</em>&lt;/object&gt;
+</pre>
+
+				<pre class="html">
+&lt;object type=<em>&quot;audio/mpeg&quot;</em> data=<em>&quot;particle_man.mp3&quot;</em>&gt;&lt;/object&gt;
+</pre>
+
+				<hr />
+
+				<ul>
+					<li>the above examples will embed a 0x0 (invisible) player to play the sound files</li>
+					<li>you may want to add <code>width</code> and <code>height</code> attributes if you want to see the player</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Embedding YouTube video</h1>
+
+				<pre class="example html">
+&lt;object width=&quot;<var>width</var>&quot; height=&quot;<var>height</var>&quot;
+ type=&quot;application/x-shockwave-flash&quot;
+ data=&quot;<var>videoURL</var>&quot;&gt;
+	&lt;param name=&quot;wmode&quot; value=&quot;transparent&quot; /&gt;
+	<var>parameters</var>
+&lt;/object&gt;
+</pre>
+
+				<pre class="html">
+&lt;object width=&quot;<em>425</em>&quot; height=&quot;<em>350</em>&quot;
+ type=&quot;application/x-shockwave-flash&quot;
+ data=&quot;<em>http://www.youtube.com/v/eKgPY1adc0A</em>&quot;&gt;
+	&lt;param name=&quot;wmode&quot; value=&quot;transparent&quot; /&gt;
+&lt;/object&gt;
+</pre>
+
+				<hr />
+
+				<ul>
+					<li>this code, unlike the code on YouTube's pages, is XHTML-compliant</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Embedding QuickTime Video</h1>
+
+				<pre class="example html">
+&lt;object width=&quot;<var>width</var>&quot; height=&quot;<var>height</var>&quot;
+ type=&quot;<em>video/quicktime</em>&quot;
+ data=&quot;<var>fileURL</var>&quot;&gt;
+	<var>parameters</var>
+&lt;/object&gt;
+</pre>
+
+				<pre class="html">
+&lt;object width=&quot;<em>320</em>&quot; height=&quot;<em>240</em>&quot;
+ type=&quot;video/quicktime&quot;
+ data=&quot;<em>examples/multimedia/win98.mov</em>&quot;&gt;
+	&lt;param name=&quot;autoplay&quot; value=&quot;true&quot;&gt;
+	&lt;param name=&quot;controller&quot; value=&quot;true&quot;&gt;
+&lt;/object&gt;
+</pre>
+
+				<ul>
+					<li>optional <code>autoplay</code> parameter can be set to <code>true</code></li>
+					<li>optional controller parameter can enable/disable onscreen play controls</li>
+				</ul>
+			</div>
+
+
+			<div class="slide">
+			<h1>Embedding Real Video</h1>
+
+			<pre class="example html">
+			&lt;object width=&quot;<span class="syntaxtemplate">width</span>&quot; height=&quot;<span class="syntaxtemplate">height</span>&quot;
+			 type=&quot;<span class="emphasizedcode">application/vnd.rn-realmedia</span>&quot;
+			 data=&quot;<span class="syntaxtemplate">fileURL</span>&quot;&gt;
+
+				<span class="syntaxtemplate">parameters</span>
+			&lt;/object&gt;
+			</pre>
+
+			<pre class="html">
+			&lt;object width=&quot;<span class="emphasizedcode">320</span>&quot; height=&quot;<span class="emphasizedcode">240</span>&quot;
+			type=&quot;application/vnd.rn-realmedia&quot;
+
+			data=&quot;<span class="emphasizedcode">examples/multimedia/flintstones.rm</span>&quot;&gt;
+				&lt;param name=&quot;autostart&quot; value=&quot;true&quot; /&gt;
+			&lt;/object&gt;
+			</pre>
+
+			<hr />
+
+			<ul>
+			<li>optional <code>autostart</code>, <code>loop</code> parameters can be <code>true</code> or <code>false</code></li>
+			<li>optional <code>controls</code> parameter can be <code>PlayButton</code>, <code>PositionSlider</code>, ...</li>
+
+			<!--
+			<li>optional <code>src</code> parameter used in IE: <code>
+			&lt;param name=&quot;src&quot; value=&quot;<span class="syntaxtemplate">fileURL</span>&quot; /&gt;</code>
+			</li>
+			-->
+			<li><a href="http://service.real.com/help/library/guides/ProductionGuide/prodguide/samples/embed/plugin2.htm">more info</a></li>
+			</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Embedding Windows Media</h1>
+
+				<pre class="example html">
+&lt;object width=&quot;<var>width</var>&quot; height=&quot;<var>height</var>&quot; type=&quot;<em>video/x-ms-wmv</em>&quot;
+ data=&quot;<var>fileURL</var>&quot;&gt;
+	<var>parameters</var>
+&lt;/object&gt;
+</pre>
+
+				<pre class="html">
+&lt;object width=&quot;<em>320</em>&quot; height=&quot;<em>240</em>&quot;
+type=&quot;video/x-ms-wmv&quot;
+data=&quot;<em>examples/multimedia/billgsux.wmv</em>&quot;&gt;
+	&lt;param name=&quot;autostart&quot; value=&quot;true&quot; /&gt;
+&lt;/object&gt;
+</pre>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>DOM and multimedia</h1>
+
+				<pre class="example js">
+<span class="comment">// plays the multimedia file of the given type</span>
+var object = $(document.createElement(&quot;object&quot;));
+object.type = &quot;<var>MIME type</var>&quot;;
+object.data = &quot;<var>url</var>&quot;;
+...
+$(&quot;<var>id</var>&quot;).appendChild(object);
+</pre>
+
+				<ul>
+					<li>multimedia files can be attached to the page by Javascript DOM code</li>
+					<li>allows you to respond to user events by displaying a multimedia effect</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>DOM and multimedia example</h1>
+
+				<pre class="js">
+<span class="comment">// plays the multimedia file of the given type</span>
+var object = $(document.createElement(&quot;object&quot;));
+object.type = &quot;<em>application/x-shockwave-flash</em>&quot;;
+object.data = &quot;<em>http://www.youtube.com/v/PZUTleBwiiw</em>&quot;;
+object.style.width = &quot;425px&quot;;
+object.style.height = &quot;350px&quot;;
+$(&quot;<em>videoarea</em>&quot;).appendChild(object);
+</pre>
+
+				<hr />
+
+				<ul>
+					<li>embeds a YouTube video in the page area called <code>videoarea</code></li>
+				</ul>
+			</div>
+
+
+
+			<!--
+
+			embedding YouTube videos
+
+			embedding flash videos
+			http://alistapart.com/articles/flashembedcagematch
+			http://alistapart.com/articles/flashsatay
+			-->
+
+
+			<!--
+			play a sound:
+			<object
+			classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
+				<param name="FileName" value="liar.wav" />
+			</object>
+
+			play a flash movie:
+			<object width="400" height="40"
+			classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#4,0,0,0">
+				<param name="SRC" value="bookmark.swf">
+				<embed src="bookmark.swf" width="400" height="40"></embed>
+			</object>
+
+			play a wmv movie:   http://www.w3schools.com/media/media_playerref.asp
+			<object
+			classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
+				<param name="FileName" value="3d.wmv" />
+			</object>
+
+			play a quicktime movie:   http://www.w3schools.com/media/media_quicktime.asp
+			<object width="160" height="144"
+			classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+			codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+				<param name="src" value="sample.mov">
+				<param name="autoplay" value="true">
+				<param name="controller" value="false">
+				<embed src="sample.mov" width="160" height="144"
+				autoplay="true" controller="false"
+				pluginspage="http://www.apple.com/quicktime/download/">
+				</embed>
+			</object>
+
+			play a real video movie:   http://www.w3schools.com/media/media_realvideo.asp
+			<object width="320" height="240"
+			classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA">
+			<param name="controls" value="ImageWindow" />
+			<param name="autostart" value="true" />
+			<param name="src" value="male.ram" />
+			</object>
+
+			-->
+
+
+
+			<!--
+			software
+				QuickTime, WMP, RealPlayer
+				[QT/Real] Alternative, Media Player Classic
+
+				codec packs
+
+				comparison:
+				http://en.wikipedia.org/wiki/Comparison_of_media_players
+
+			JAR / applets
+			-->
+
+		</div>
+
+
+		</div>
+
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+					document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var pageTracker = _gat._getTracker("UA-2729135-5");
+					pageTracker._initData();
+					pageTracker._trackPageview();
+				}
+			}
+		</script>
+	</body>
+
+<!-- Mirrored from courses.cs.washington.edu/courses/cse190m/10su/lectures/slides/lectureXX-multimedia.shtml by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jan 2018 10:58:37 GMT -->
+</html>
+

@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+
+		<!-- metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="generator" content="S5" />
+		<meta name="version" content="S5 1.1" />
+		<meta name="author" content="Hafiz Muhammad Asif" />
+		<meta name="company" content="University of Lahore" />
+		<meta name="description"
+		 content="Lecture slides to accompany Web Programming Step by Step, a college textbook on web programming." />
+		<meta name="keywords"
+		 content="web programming, html, xhtml, css, style sheets, layout, w3c, php, forms, " />
+
+		<!-- configuration parameters -->
+		<meta name="defaultView" content="slideshow" />
+		<meta name="controlVis" content="hidden" />
+
+		<!-- style sheet links -->
+		<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+		<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+		<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+		<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+
+		<!-- S5 JS -->
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js" type="text/javascript"></script>
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js" type="text/javascript"></script>
+
+		<script src="ui/default/slides.js" type="text/javascript"></script>
+		<script src="resources/slides.js" type="text/javascript"></script>
+		<script src="resources/DrawingOverlay.js" type="text/javascript"></script>
+
+
+		<title>Web Programming Step by Step, Lecture 22: Web Security</title>
+	</head>
+
+	<body>
+		<div class="layout">
+			<div id="controls"><!-- DO NOT EDIT --></div>
+			<div id="currentSlide"><!-- DO NOT EDIT --></div>
+			<div id="header"></div>
+
+			<div id="footer">
+				<h1><em>Web Programming Step by Step</em>, Lecture 22</h1>
+				<h2>Web Security</h2>
+			</div>
+		</div>
+
+
+		<div class="presentation">
+
+			<div class="slide">
+				<h1><a href="http://www.facebook.com/ali.asif67">Web Programming Step by Step</a></h1>
+				<h3>Lecture 22 <br /> Web Security</h3>
+
+				<p class="license">
+					Except where otherwise noted, the contents of this presentation are Copyright 2018 Hafiz Muhammad Asif.
+				</p>
+
+				<div class="w3c">
+					<a href="http://validator.w3.org/check/referer"><img src="images/w3c-xhtml11.png" alt="Valid XHTML 1.1" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/w3c-css.png" alt="Valid CSS!" /></a>
+				</div>
+			</div>
+			
+			
+			
+			<div class="slide titleslide">
+				<h1>1. The "security mindset"</h1>
+				
+				<ul>
+					<li><strong>security mindset</strong></li>
+					<li>some basic web attacks</li>
+					<li>breaking and securing an example page</li>
+
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>CSE &le; 190M</h1>
+				
+				<div>
+					<img src="images/group_hug.jpg" alt="group hug" style="float: right; margin-left: 1em" />
+
+				</div>
+				
+				<ul>
+					<li>until now, we have assumed:
+						<ul>
+							<li>valid user input</li>
+							<li>non-malicious users</li>
+							<li>nothing will ever go wrong</li>
+						</ul>
+
+					</li>
+					<li>this is unrealistic!</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>The real world</h1>
+				
+				<div>
+					<img src="images/orcs.jpg" alt="orcs (dorks?)" style="float: right; margin-left: 1em" />
+
+				</div>
+				
+				<ul>
+					<li>in order to write secure code, we must assume:
+						<ul>
+							<li>invalid input</li>
+							<li>evil users</li>
+							<li>incompetent users</li>
+							<li>everybody is out to get you</li>
+							<li>botnets, hackers, script kiddies, KGB, etc. are out there</li>
+						</ul>
+
+					</li>
+					<li>trust nothing</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide titleslide">
+				<h1>2. Some basic web attacks</h1>
+				
+				<ul>
+					<li>security mindset</li>
+					<li><strong>some basic web attacks</strong></li>
+					<li>breaking and securing an example page</li>
+
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>HTML injection</h1>
+				
+				<p class="description">
+					a flaw where a user is able to inject arbitrary HTML content into your page
+				</p>
+
+				<div class="rightfigure">
+					<img src="images/8ball.png" alt="8-ball" />
+				</div>
+				
+				<ul>
+					<li>
+						This flaw often exists when a page accepts user input and inserts it back into the page without filtering or processing.
+					</li>
+					
+					<li>
+						example:  magic 8-ball
+						<ul>
+							<li>
+								<a href="https://webster.cs.washington.edu/stepp/security/8ball.html">https://webster.cs.washington.edu/stepp/security/8ball.html</a>
+							</li>
+							<li>
+								What kinds of silly or malicious content can we inject into the page?  Why is this bad?
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Injecting HTML content</h1>
+				
+				<pre class="examplecode url">
+8ball.php?question=<em>&lt;blink&gt;lololol&lt;/blink&gt;</em>
+</pre>
+				
+				<ul>
+					<li>injected content can lead to:
+						<ul>
+							<li>annoyance / confusion</li>
+							<li class="incremental">damage to data on the server</li>
+							<li class="incremental">exposure of private data on the server</li>
+							<li class="incremental">financial gain/loss</li>
+							<li class="incremental">end of the human race as we know it</li>
+						</ul>
+					</li>
+
+					<li>why is HTML injection bad?  It allows others to:
+						<ul class="incremental">
+							<li>disrupt the flow/layout of your site</li>
+							<li>put words into your mouth</li>
+							<li>possibly run malicious code on your users' computers</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Cross-site scripting</h1>
+				
+				<p class="description">
+					a flaw where a user is able to inject and execute arbitrary JavaScript code in your page
+				</p>
+
+				<pre class="examplecode url">
+8ball.php?question=<em>&lt;script type='text/javascript'&gt;alert('pwned');&lt;/script&gt;</em>
+</pre>
+
+				<div class="rightfigure">
+					<img src="images/buyagrade.png" alt="Buy-a-Grade" />
+				</div>
+				
+				<ul>
+					<li>JavaScript is often able to be injected because of an HTML injection vulnerability</li>
+
+					<li>
+						example: Lab 4 (Buy-a-Grade)
+						<ul>
+							<li>
+								<a href="https://webster.cs.washington.edu/stepp/security/buyagrade.html">https://webster.cs.washington.edu/stepp/security/buyagrade.html</a>
+							</li>
+							<li>
+								How can we inject JavaScript code into the page?  Why is this bad?
+							</li>
+						</ul>
+					</li>
+
+					<li class="incremental">injected script code can:
+						<ul>
+							<li>masquerade as the original page and trick the user into entering sensitive data</li>
+							<li>steal the user's cookies</li>
+							<li>masquerade as the user and submit data on their behalf (submit forms, click buttons, etc.)</li>
+							<li>...</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Securing against HTML injection</h1>
+				
+				<ul>
+					<li>one idea: disallow harmful characters
+						<ul>
+							<li>HTML injection is impossible without &lt; &gt;</li>
+							<li>can strip those characters from input, or reject the entire request if they are present</li>
+						</ul>
+					</li>
+					
+					<li>better idea: allow them, but <span class="term">escape</span> them</li>
+				</ul>
+
+				<table class="standard">
+					<tr>
+						<td>
+							<a href="http://www.php.net/htmlspecialchars"><code>htmlspecialchars</code></a>
+						</td>
+						<td>
+							returns an HTML-escaped version of a string
+						</td>
+					</tr>
+				</table>
+
+				<pre class="php">
+$text = "&lt;p&gt;hi 2 u &amp; me&lt;/p&gt;";
+$text = htmlspecialchars($text);   <span class="comment"># "&amp;lt;p&amp;gt;hi 2 u &amp;amp; me&amp;lt;/p&amp;gt;"</span>
+</pre>
+			</div>
+            
+            
+            
+			<div class="slide">
+				<h1>SQL injection</h1>
+				
+				<p class="description">
+					a flaw where the user is able to inject arbitrary SQL commands into your query
+				</p>
+				
+				<div class="rightfigure">
+					<img src="images/8ball.png" alt="8-ball" />
+				</div>
+				
+				<ul>
+					<li>
+						This flaw often exists when a page accepts user input and inserts it into a query without filtering or processing.
+					</li>
+					
+					<li>
+						example: simpsons grade lookup
+						<ul>
+							<li>
+								<a href="https://webster.cs.washington.edu/stepp/security/grades.html">https://webster.cs.washington.edu/stepp/security/grades.html</a>
+							</li>
+							<li>
+								What kinds of SQL can we inject into the query?  Why is this bad?
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>A SQL injection attack</h1>
+				
+				<ul>
+					<li>
+						The query in the Simpsons PHP code is:
+						
+						<pre class="examplecode sql">
+$query = &quot;SELECT * FROM users
+WHERE username = '$username' AND password = '$password'&quot;;
+</pre>
+						
+					</li>
+					
+					<li>Are there malicious values for the user name and password that we could enter?</li>
+
+					<li class="incremental">
+						Password: <input type="text" style="font-family: monospace;" value="' OR '1'='1" />
+					</li>
+
+
+					<li class="incremental">
+						This causes the query to be executed as:
+
+						<pre class="examplecode sql">
+$query = &quot;SELECT * FROM users
+WHERE username = '$username' AND password = '<em class="highlight">' OR '1'='1</em>'&quot;;
+</pre>
+
+						<ul>
+							<li>
+								What will the above query return?  Why is this bad?
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Too true...</h1>
+				
+				<div class="figure">
+					<img src="images/xkcd_tables.png" alt="bobby tables xkcd comic" />
+				</div>
+				
+				<ul>
+					<li>injected SQL can:
+						<ul>
+							<li>change the query to output others' data (revealing private information)</li>
+							<li>insert a query to modify existing data (increase bank account balance)</li>
+							<li>delete existing data (<code>; DROP TABLE students; --</code> )</li>
+							<li>bloat the query to slow down the server (<code>JOIN a JOIN b JOIN c ... )</li>
+							<li>...</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Securing against SQL injection</h1>
+				
+				<ul>
+					<li>similar to securing against HTML injection, escape the string before you include it in your query</li>
+				</ul>
+				
+				<table class="standard">
+					<tr>
+						<td>
+							<a href="http://www.php.net/mysql_real_escape_string"><code>mysql_real_escape_string</code></a>
+						</td>
+						<td>
+							returns a SQL-escaped version of a string
+						</td>
+					</tr>
+				</table>
+
+				<pre class="examplecode php">
+$username = <em>mysql_real_escape_string($_REQUEST[&quot;username&quot;])</em>;
+$password = <em>mysql_real_escape_string($_REQUEST[&quot;password&quot;])</em>;
+$query = &quot;SELECT name, ssn, dob FROM users
+WHERE username = '$username' AND password = '$password'&quot;;
+
+</pre>
+
+				<ul>
+					<li>replaces <code>'</code> with <code>\'</code>, etc.</li>
+					<li>you must log in to the db using <code>mysql_connect</code> before calling <code>mysql_real_escape_string</code></li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide titleslide">
+				<h1>3. Breaking and securing an example page</h1>
+				
+				<ul>
+					<li>PHP/SQL review</li>
+
+					<li>some basic web attacks</li>
+					<li><strong>breaking and securing an example page</strong></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide practiceproblem">
+				<h1>Practice problem: Hack Marty's turnin</h1>
+
+				
+				<ul>
+					<li>How can we break this page? <br />
+						<a href="https://webster.cs.washington.edu/stepp/security/turnin/">https://webster.cs.washington.edu/stepp/security/turnin/</a>
+					</li>
+					
+					<li>We want to cheat on Homework Assignment 7, Song.java.  We want to find a way to submit a perfect working solution without doing any real work.</li>
+					
+					<li>We got a low grade on a past assignment, so if possible, we want to set our past grades to be higher than they are now.</li>
+					
+					<li>Our enemy is fellow classmate Felix Chu.  We want to find out his personal information (password, email, student ID, grade, etc.).</li>
+					
+					<li>We don't like the course instructor, Marty Stepp.  We want to make the turnin page print an embarrassing message about him.</li>
+				</ul>
+			</div>
+
+
+
+		</div>
+
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+					document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var pageTracker = _gat._getTracker("UA-2729135-5");
+					pageTracker._initData();
+					pageTracker._trackPageview();
+				}
+			}
+		</script>
+	</body>
+
+<!-- Mirrored from courses.cs.washington.edu/courses/cse190m/10su/lectures/slides/lecture22-security.shtml by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jan 2018 10:55:10 GMT -->
+</html>
+

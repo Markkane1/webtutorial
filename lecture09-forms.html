@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+
+		<!-- metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="generator" content="S5" />
+		<meta name="version" content="S5 1.1" />
+		<meta name="author" content="Hafiz Muhammad Asif" />
+		<meta name="company" content="University of Lahore" />
+		<meta name="description"
+		 content="Lecture slides to accompany Web Programming Step by Step, a college textbook on web programming." />
+		<meta name="keywords"
+		 content="web programming, html, xhtml, css, style sheets, layout, w3c, php, forms, " />
+
+		<!-- configuration parameters -->
+		<meta name="defaultView" content="slideshow" />
+		<meta name="controlVis" content="hidden" />
+
+		<!-- style sheet links -->
+		<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+		<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+		<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+		<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+
+		<!-- S5 JS -->
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js" type="text/javascript"></script>
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js" type="text/javascript"></script>
+
+		<script src="ui/default/slides.js" type="text/javascript"></script>
+		<script src="resources/slides.js" type="text/javascript"></script>
+		<script src="resources/DrawingOverlay.js" type="text/javascript"></script>
+
+
+		<title>Web Programming Step by Step, Lecture 9: HTML Forms</title>
+	</head>
+
+	<body>
+		<div class="layout">
+			<div id="controls"><!-- DO NOT EDIT --></div>
+			<div id="currentSlide"><!-- DO NOT EDIT --></div>
+			<div id="header"></div>
+			<div id="footer">
+				<h1><em>Web Programming Step by Step</em>, Lecture 9</h1>
+				<h2>HTML Forms</h2>
+			</div>
+		</div>
+
+		<div class="presentation">
+			<div class="slide">
+				<h1><a href="http://www.facebook.com/ali.asif67">Web Programming Step by Step</a></h1>
+				<h3>Lecture 9 <br /> HTML Forms</h3>
+				<h4>Reading: 6.1 - 6.2, 6.4</h4>
+
+				<p class="license">
+					Except where otherwise noted, the contents of this presentation are Copyright 2018 Hafiz Muhammad Asif.
+				</p>
+
+				<div class="w3c">
+					<a href="http://validator.w3.org/check/referer"><img src="images/w3c-xhtml11.png" alt="Valid XHTML 1.1" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/w3c-css.png" alt="Valid CSS!" /></a>
+				</div>
+			</div>
+
+
+
+			<div class="slide titleslide">
+				<h1>6.1: Form Basics</h1>
+				
+				<ul>
+					<li>
+						<strong>6.1: Form Basics</strong>
+					</li>
+					<li>
+						6.2: Form Controls
+					</li>
+					<li>
+						6.3: Submitting Data
+					</li>
+					<li>
+						6.4: Processing Form Data in PHP
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Web data</h1>
+
+				<ul>
+					<li>most interesting web pages revolve around data
+						<ul>
+							<li>examples: Google, IMDB, Digg, Facebook, YouTube, Rotten Tomatoes</li>
+							<li>can take many formats: text, HTML, XML, multimedia</li>
+						</ul>
+					</li>
+					<li>many of them allow us to access their data</li>
+					<li>some even allow us to submit our own new data</li>
+					<li>most server-side web programs accept <span class="term">parameters</span> that guide their execution</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Query strings and parameters
+					<span class="readingsection">(6.1.1)</span>
+				</h1>
+
+<pre class="syntaxtemplate url">
+<var>URL</var><em>?</em><var>name</var><em>=</em><var>value</var><em>&amp;</em><var>name</var><em>=</em><var>value</var>...
+</pre>
+
+<pre class="url">
+http://www.google.com/search?<em>q=Obama</em>
+http://example.com/student_login.php?<em>username=stepp</em>&<em>id=1234567</em>
+</pre>
+				
+				<ul>
+					<li><span class="term">query string</span>: a set of parameters passed from a browser to a web server
+						<ul>
+							<li>often passed by placing name/value pairs at the end of a URL</li>
+							<li>above, parameter <code>username</code> has value <code>stepp</code>, and <code>sid</code> has value <code>1234567</code></li>
+						</ul>
+					</li>
+					<li>PHP code on the server can examine and utilize the value of parameters</li>
+					<li>a way for PHP code to produce different output based on values passed by the user</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Query parameters:
+					<a href="http://us2.php.net/manual/en/reserved.variables.request.php" class="underscorelink"><code>$_REQUEST</code></a>
+					<span class="readingsection">(6.4.2)</span>
+				</h1>
+
+<pre class="examplecode php">
+$user_name = <em>$_REQUEST[&quot;username&quot;]</em>;
+$id_number = (int) <em>$_REQUEST[&quot;id&quot;]</em>;
+$eats_meat = FALSE;
+if (isset(<em>$_REQUEST[&quot;meat&quot;]</em>)) {
+	$eats_meat = TRUE;
+}
+</pre>
+
+				<ul>
+					<li>
+						<code>$_REQUEST[&quot;<var>parameter name</var>&quot;]</code> returns a parameter's value as a string
+					</li>
+					
+					<li>test whether a given parameter was passed with <code>isset</code></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>HTML forms</h1>
+
+				<div style="float: right; border: 3px solid gray;"><img src="images/form.png" alt="HTML form" /></div>
+
+				<ul>
+					<li><span class="term">form</span>: a group of UI controls that accepts information from the user and sends the information to a web server</li>
+					<li>the information is sent to the server as a <span class="term">query string</span></li>
+					<li>JavaScript can be used to create interactive controls (seen later)</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					HTML form:
+					<a href="http://www.w3schools.com/tags/tag_form.asp"><code>&lt;form&gt;</code></a>
+					<span class="readingsection">(6.1.2)</span>
+				</h1>
+
+<pre class="examplecode html">
+<em>&lt;form action=&quot;<var>destination URL</var>&quot;&gt;</em>
+	<var>form controls</var>
+<em>&lt;/form&gt;</em>
+</pre>
+
+				<ul>
+					<li>required <code>action</code> attribute gives the URL of the page that will process this form's data</li>
+					<li>
+						when form has been filled out and <span class="term">submitted</span>, its data will be sent to the <code>action</code>'s URL
+					</li>
+					<li>
+						one page may contain many forms if so desired
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Form example
+				</h1>
+
+				<div class="example">
+<pre class="examplecode html">
+<em>&lt;form action=&quot;http://www.google.com/search&quot;&gt;</em>
+	&lt;div&gt;
+		Let's search Google:
+		&lt;input name=&quot;q&quot; /&gt;
+		&lt;input type=&quot;submit&quot; /&gt;
+	&lt;/div&gt;
+<em>&lt;/form&gt;</em>
+</pre>
+
+					<div class="exampleoutput insertoutput"></div>
+				</div>
+
+				<ul>
+					<li>must wrap the form's controls in a block element such as <code>div</code></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide titleslide">
+				<h1>6.2: Form Controls</h1>
+				
+				<ul>
+					<li>
+						6.1: Form Basics
+					</li>
+					<li>
+						<strong>6.2: Form Controls</strong>
+					</li>
+					<li>
+						6.3: Submitting Data
+					</li>
+					<li>
+						6.4: Processing Form Data in PHP
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Form controls: <a href="http://www.w3schools.com/tags/tag_input.asp"><code>&lt;input&gt;</code></a>
+				</h1>
+
+				<div class="example">
+<pre class="examplecode html">
+<span class="comment">&lt;!-- 'q' happens to be the name of Google's required parameter --&gt;</span>
+&lt;input <em>type=&quot;text&quot; name=&quot;q&quot; value=&quot;Colbert Report&quot;</em> /&gt;
+&lt;input <em>type=&quot;submit&quot; value=&quot;Booyah!&quot;</em> /&gt;
+</pre>
+				
+					<form action="http://www.google.com/search" class="exampleoutput insertoutput"></form>
+				</div>
+
+				<ul>
+					<li><code>input</code> element is used to create many UI controls
+						<ul>
+							<li>an inline element that MUST be self-closed</li>
+						</ul>
+					</li>
+					<li><code>name</code> attribute specifies name of query parameter to pass to server</li>
+					<li><code>type</code> can be <code>button</code>, <code>checkbox</code>, <code>file</code>, <code>hidden</code>, <code>password</code>, <code>radio</code>, <code>reset</code>, <code>submit</code>, <code>text</code>, ...</li>
+					<li><code>value</code> attribute specifies control's initial text</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Text fields:
+					<a href="http://www.w3schools.com/tags/tag_input.asp"><code>&lt;input&gt;</code></a>
+					<span class="readingsection">(6.2.1)</span>
+				</h1>
+				
+				<div class="example">
+<pre class="examplecode html">
+&lt;input type=&quot;text&quot; <em>size=&quot;10&quot; maxlength=&quot;8&quot;</em> /&gt; NetID &lt;br /&gt;
+&lt;input <em>type=&quot;password&quot;</em> size=&quot;16&quot; /&gt; Password
+&lt;input type=&quot;submit&quot; value=&quot;Log In&quot; /&gt;
+</pre>
+				
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput"></form>
+				</div>
+
+				<ul>
+					<li><code>input</code> attributes: <code>disabled</code>, <code>maxlength</code>, <code>readonly</code>, <code>size</code>, <code>value</code></li>
+					<li><code>size</code> attribute controls onscreen width of text field</li>
+					<li><code>maxlength</code> limits how many characters user is able to type into field</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Text boxes:
+					<a href="http://www.w3schools.com/tags/tag_textarea.asp"><code>&lt;textarea&gt;</code></a>
+					<span class="readingsection">(6.2.2)</span>
+				</h1>
+				
+				<p class="description">
+					a multi-line text input area (inline)
+				</p>
+
+				<div class="example">
+<pre class="examplecode html">
+<em>&lt;textarea rows=&quot;4&quot; cols=&quot;20&quot;&gt;</em>
+Type your comments here.
+<em>&lt;/textarea&gt;</em>
+</pre>
+		
+					<div class="exampleoutput insertoutput"></div>
+				</div>
+
+				<ul>
+					<li>initial text is placed inside <code>textarea</code> tag (optional)</li>
+					<li>required <code>rows</code> and <code>cols</code> attributes specify height/width in characters</li>
+					<li>optional <code>readonly</code> attribute means text cannot be modified</li>
+				</ul>
+			</div>
+			
+			
+
+			<div class="slide">
+				<h1>
+					Checkboxes:
+					<a href="http://www.w3schools.com/tags/tag_input.asp"><code>&lt;input&gt;</code></a>
+					<span class="readingsection">(6.2.3)</span>
+				</h1>
+				
+				<p class="description">
+					yes/no choices that can be checked and unchecked (inline)
+				</p>
+
+				<div class="example">
+<pre class="examplecode html">
+&lt;input <em>type=&quot;checkbox&quot;</em> name=&quot;lettuce&quot; /&gt; Lettuce
+&lt;input <em>type=&quot;checkbox&quot; name=&quot;tomato&quot; checked=&quot;checked&quot;</em> /&gt; Tomato
+&lt;input <em>type=&quot;checkbox&quot;</em> name=&quot;pickles&quot; checked=&quot;checked&quot; /&gt; Pickles
+</pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li>none, 1, or many checkboxes can be checked at same time</li>
+					<li>when sent to server, any checked boxes will be sent with value <code>on</code>:
+						<ul>
+							<li>
+<pre>
+http://webster.cs.washington.edu/params.php<em>?tomato=on&amp;pickles=on</em>
+</pre>
+							</li>
+						</ul>
+					</li>
+					<li>use <code>checked=&quot;checked&quot;</code> attribute in HTML to initially check the box</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Radio buttons:
+					<a href="http://www.w3schools.com/tags/tag_input.asp"><code>&lt;input&gt;</code></a>
+					<span class="readingsection">(6.2.4)</span>
+				</h1>
+				
+				<p class="description">
+					sets of mutually exclusive choices (inline)
+				</p>
+
+				<div class="example">
+<pre class="examplecode html">
+&lt;input <em>type=&quot;radio&quot;</em> name=&quot;cc&quot; value=&quot;visa&quot; checked=&quot;checked&quot; /&gt; Visa
+&lt;input <em>type=&quot;radio&quot;</em> name=&quot;cc&quot; value=&quot;mastercard&quot; /&gt; MasterCard
+&lt;input <em>type=&quot;radio&quot;</em> name=&quot;cc&quot; value=&quot;amex&quot; /&gt; American Express
+</pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li>grouped by <code>name</code> attribute (only one can be checked at a time)</li>
+					<li>must specify a <code>value</code> for each one or else it will be sent as value <code>on</code></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Text labels:
+					<a href="http://www.w3schools.com/tags/tag_label.asp"><code>&lt;label&gt;</code></a>
+					<span class="readingsection">(6.2.5)</span>
+				</h1>
+
+				<div class="example">
+<pre class="examplecode html" style="font-size: smaller">
+<em>&lt;label&gt;</em>&lt;input type=&quot;radio&quot; name=&quot;cc&quot; value=&quot;visa&quot; checked=&quot;checked&quot; /&gt; Visa<em>&lt;/label&gt;</em>
+<em>&lt;label&gt;</em>&lt;input type=&quot;radio&quot; name=&quot;cc&quot; value=&quot;mastercard&quot; /&gt; MasterCard<em>&lt;/label&gt;</em>
+<em>&lt;label&gt;</em>&lt;input type=&quot;radio&quot; name=&quot;cc&quot; value=&quot;amex&quot; /&gt; American Express<em>&lt;/label&gt;</em>
+</pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li>associates nearby text with control, so you can click text to activate control</li>
+					<li>can be used with checkboxes or radio buttons</li>
+					<li><code>label</code> element can be targeted by CSS style rules</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Drop-down list:
+					<a href="http://www.w3schools.com/tags/tag_select.asp"><code>&lt;select&gt;</code></a>,
+					<a href="http://www.w3schools.com/tags/tag_option.asp"><code>&lt;option&gt;</code></a>
+					<span class="readingsection">(6.2.6)</span>
+				</h1>
+				
+				<p class="description">
+					menus of choices that collapse and expand (inline)
+				</p>
+
+				<div class="example">
+<pre class="examplecode html">
+<em>&lt;select name=&quot;favoritecharacter&quot;&gt;</em>
+	&lt;option&gt;Jerry&lt;/option&gt;
+	&lt;option&gt;George&lt;/option&gt;
+	&lt;option <em>selected=&quot;selected&quot;</em>&gt;Kramer&lt;/option&gt;
+	&lt;option&gt;Elaine&lt;/option&gt;
+<em>&lt;/select&gt;</em>
+</pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li><code>option</code> element represents each choice</li>
+					<li><code>select</code> optional attributes: <code>disabled</code>, <code>multiple</code>, <code>size</code></li>
+					<li>optional <code>selected</code> attribute sets which one is initially chosen</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Using <code>&lt;select&gt;</code> for lists</h1>
+
+				<div class="example">
+<pre class="examplecode html" style="font-size: smaller">
+&lt;select name=&quot;favoritecharacter<em>[]</em>&quot; <em>size=&quot;3&quot; multiple=&quot;multiple&quot;</em>&gt;
+	&lt;option&gt;Jerry&lt;/option&gt;
+	&lt;option&gt;George&lt;/option&gt;
+	&lt;option&gt;Kramer&lt;/option&gt;
+	&lt;option&gt;Elaine&lt;/option&gt;
+	&lt;option <em>selected=&quot;selected&quot;</em>&gt;Newman&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+			
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li>optional <code>multiple</code> attribute allows selecting multiple items with shift- or ctrl-click
+						<ul>
+							<li>
+								must declare parameter's name with <code>[]</code> if you allow multiple selections
+							</li>
+						</ul>
+					</li>
+					<li><code>option</code> tags can be set to be initially <code>selected</code></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Option groups:
+					<a href="http://www.w3schools.com/tags/tag_optgroup.asp"><code>&lt;optgroup&gt;</code></a>
+				</h1>
+
+				<div class="example">
+<pre class="examplecode html" style="font-size: smaller">
+&lt;select name=&quot;favoritecharacter&quot;&gt;
+	<em>&lt;optgroup label=&quot;Major Characters&quot;&gt;</em>
+		&lt;option&gt;Jerry&lt;/option&gt;
+		&lt;option&gt;George&lt;/option&gt;
+		&lt;option&gt;Kramer&lt;/option&gt;
+		&lt;option&gt;Elaine&lt;/option&gt;
+	<em>&lt;/optgroup&gt;</em>
+	<em>&lt;optgroup label=&quot;Minor Characters&quot;&gt;</em>
+		&lt;option&gt;Newman&lt;/option&gt;
+		&lt;option&gt;Susan&lt;/option&gt;
+	<em>&lt;/optgroup&gt;</em>
+&lt;/select&gt;
+</pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li>What should we do if we don't like the bold italic?</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Reset buttons
+					<span class="readingsection">(6.2.7)</span>
+				</h1>
+
+				<!-- *** this form doesn't make sense as a GET; change -->
+				
+				<div class="example">
+<pre class="examplecode html">
+Name: &lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt; &lt;br /&gt;
+Food: &lt;input type=&quot;text&quot; name=&quot;meal&quot; value=&quot;pizza&quot; /&gt; &lt;br /&gt;
+&lt;label&gt;Meat? &lt;input type=&quot;checkbox&quot; name=&quot;meat&quot; /&gt;&lt;/label&gt; &lt;br /&gt;
+<em>&lt;input type=&quot;reset&quot; /&gt;</em>
+</pre>
+					
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li>when clicked, returns all form controls to their initial values</li>
+					<li>specify custom text on the button by setting its <code>value</code> attribute</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					Grouping input:
+					<a href="http://www.w3schools.com/tags/tag_fieldset.asp"><code>&lt;fieldset&gt;</code></a>, 
+					<a href="http://www.w3schools.com/tags/tag_legend.asp"><code>&lt;legend&gt;</code></a>
+					<span class="readingsection">(6.2.8)</span>
+				</h1>
+				
+				<p class="description">
+					groups of input fields with optional caption (block)
+				</p>
+
+				<div class="example">
+<pre class="examplecode html">
+<em>&lt;fieldset&gt;</em>
+	<em>&lt;legend&gt;</em>Credit cards:<em>&lt;/legend&gt;</em>
+	&lt;input <em>type=&quot;radio&quot;</em> name=&quot;cc&quot; value=&quot;visa&quot; checked=&quot;checked&quot; /&gt; Visa
+	&lt;input <em>type=&quot;radio&quot;</em> name=&quot;cc&quot; value=&quot;mastercard&quot; /&gt; MasterCard
+	&lt;input <em>type=&quot;radio&quot;</em> name=&quot;cc&quot; value=&quot;amex&quot; /&gt; American Express
+<em>&lt;/fieldset&gt;</em>
+</pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+
+				<ul>
+					<li><code>fieldset</code> groups related input fields, adds a border; <code>legend</code> supplies a caption</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Common UI control errors</h1>
+
+				<ul>
+					<li>
+						<q>I changed the form's HTML code ... but when I refresh, the page doesn't update!</q>
+
+						<ul>
+							<li>By default, when you refresh a page, it leaves the previous values in all form controls</li>
+							<li>it does this in case you were filling out a long form and needed to refresh/return to it</li>
+							<li>if you want it to clear out all UI controls' state and values, you must do a <span class="term">full refresh</span>
+								<ul>
+									<li>Firefox: Shift-Ctrl-R</li>
+									<li>Mac: Shift-Command-R</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>
+					Styling form controls 
+					<span class="readingsection">(6.2.9)</span>
+				</h1>
+				
+				<div class="example">
+<pre class="syntaxtemplate css">
+<span class="placeholder">element</span><em>[<span class="placeholder">attribute</span>=&quot;<span class="placeholder">value</span>&quot;]</em> {
+	<span class="placeholder">property</span> : <span class="placeholder">value</span>;
+	<span class="placeholder">property</span> : <span class="placeholder">value</span>;
+	...
+	<span class="placeholder">property</span> : <span class="placeholder">value</span>;
+}
+</pre>
+
+<pre class="examplecode css">
+input<em>[type=&quot;text&quot;]</em> {
+	background-color: yellow;
+	font-weight: bold;
+}
+</pre>
+
+					<div class="exampleoutput insertoutput">
+						<input type="text" value="Borat" style="background-color: yellow; font-weight: bold;" />
+					</div>
+				</div>
+
+				<ul>
+					<li><span class="term">attribute selector</span>: matches only elements that have a particular attribute value</li>
+					<li>useful for controls because many share the same element (<code>input</code>)</li>
+				</ul>
+			</div>
+			
+			
+			
+			<!-- *** there should be a slide here about float left to align form columns -->
+
+
+
+			<!--
+			*** this is more useful for ASCIImation...
+			<div class="slide">
+				<h1>Styling Text Boxes</h1>
+				
+<pre class="examplecode html">
+&lt;textarea <em>rows=&quot;3&quot; cols=&quot;40&quot;</em>&gt;&lt;/textarea&gt;
+</pre>
+
+<pre class="examplecode js">
+body { <em>height: 100%;</em> }
+textarea {
+	<em>position: absolute;</em>
+	<em>width: 50%;</em>
+	<em>height: 15%;</em>
+}
+</pre>
+
+				<ul>
+					<li>XHTML validator requires <code>rows</code> and <code>cols</code> on a <code>textarea</code></li>
+					<li>if you want a <code>textarea</code> at a specific width/height in pixels or %, you must specify <code>rows</code>/<code>cols</code> in the XHTML <em>and</em> <code>width</code>/<code>height</code> in the CSS
+						<ul>
+							<li>the <code>rows</code>/<code>cols</code> will be ignored but must be there anyway...</li>
+							<li>sometimes specifying a <code>height</code> on the page's <code>body</code> helps</li>
+							<li>sometimes using absolute/fixed positioning on the <code>textarea</code> helps</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			-->
+
+
+
+			<div class="slide">
+				<h1>
+					Hidden input parameters
+					<span class="readingsection">(6.3.2)</span>
+				</h1>
+				
+				<div class="example">
+<pre class="examplecode html">
+&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt; Name &lt;br /&gt;
+&lt;input type=&quot;text&quot; name=&quot;sid&quot; /&gt; SID &lt;br /&gt;
+<em>&lt;input type=&quot;hidden&quot; name=&quot;school&quot; value=&quot;UW&quot; /&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;year&quot; value=&quot;2048&quot; /&gt;</em></pre>
+
+					<form action="http://webster.cs.washington.edu/params.php" class="exampleoutput insertoutput">
+						<input type="submit" />
+					</form>
+				</div>
+				
+				<ul>
+					<li>an invisible parameter that is still passed to the server when form is submitted</li>
+					<li>useful for passing on additional state that isn't modified by the user</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide titleslide">
+				<h1>6.4: Processing Form Data in PHP</h1>
+				
+				<ul>
+					<li>
+						6.1: Form Basics
+					</li>
+					<li>
+						6.2: Form Controls
+					</li>
+					<li>
+						6.3: Submitting Data
+					</li>
+					<li>
+						<strong>6.4: Processing Form Data in PHP</strong>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Example: Exponents</h1>
+
+				<div class="example">
+<pre class="examplecode php">
+$base = <em>$_REQUEST[&quot;base&quot;]</em>;
+$exp = <em>$_REQUEST[&quot;exponent&quot;]</em>;
+$result = pow($base, $exp);
+print "$base ^ $exp = $result";
+</pre>
+
+<pre class="exampleurl url">
+http://example.com/exponent.php?<em>base=3</em>&<em>exponent=4</em>
+</pre>
+
+					<div class="exampleoutput">
+						3 ^ 4 = 81
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Example: Print all parameters</h1>
+
+				<div class="example">
+					<pre class="examplecode php">
+&lt;?php
+<em>foreach ($_REQUEST as $param =&gt; $value) {</em>
+	?&gt;
+
+	&lt;p&gt;Parameter <em>&lt;?= $param ?&gt;</em> has value <em>&lt;?= $value ?&gt;</em>&lt;/p&gt;
+
+	&lt;?php
+<em>}</em>
+?&gt;
+</pre>
+
+<pre class="exampleurl url">
+http://example.com/print_params.php?<em>name=Marty+Stepp</em>&<em>sid=1234567</em>
+</pre>
+
+					<div class="exampleoutput">				
+						<p>Parameter name has value Marty Stepp</p>
+						<p>Parameter sid has value 1234567</p>
+					</div>
+				</div>
+				
+				<ul>
+					<li>
+						or call <code>print_r</code> or <code>var_dump</code> on <code>$_REQUEST</code> for debugging
+					</li>
+				</ul>
+			</div>
+
+
+		</div>
+
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+					document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var pageTracker = _gat._getTracker("UA-2729135-5");
+					pageTracker._initData();
+					pageTracker._trackPageview();
+				}
+			}
+		</script>
+	</body>
+
+<!-- Mirrored from courses.cs.washington.edu/courses/cse190m/10su/lectures/slides/lecture09-forms.shtml by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jan 2018 10:55:05 GMT -->
+</html>
+

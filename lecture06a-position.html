@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+<head>
+
+		<!-- metadata -->
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="generator" content="S5" />
+		<meta name="version" content="S5 1.1" />
+		<meta name="author" content="Hafiz Muhammad Asif" />
+		<meta name="company" content="University of Lahore" />
+		<meta name="description"
+		 content="Lecture slides to accompany Web Programming Step by Step, a college textbook on web programming." />
+		<meta name="keywords"
+		 content="web programming, html, xhtml, css, style sheets, layout, w3c, php, forms, " />
+
+		<!-- configuration parameters -->
+		<meta name="defaultView" content="slideshow" />
+		<meta name="controlVis" content="hidden" />
+
+		<!-- style sheet links -->
+		<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+		<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+		<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+		<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+
+		<!-- S5 JS -->
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js" type="text/javascript"></script>
+		<script src="../../../../../../ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js" type="text/javascript"></script>
+
+		<script src="ui/default/slides.js" type="text/javascript"></script>
+		<script src="resources/slides.js" type="text/javascript"></script>
+		<script src="resources/DrawingOverlay.js" type="text/javascript"></script>
+
+
+		<title>Web Programming Step by Step, Lecture 6-A: Positioning</title>
+	</head>
+
+	<body>
+		<div class="layout">
+			<div id="controls"><!-- DO NOT EDIT --></div>
+			<div id="currentSlide"><!-- DO NOT EDIT --></div>
+			<div id="header"></div>
+			<div id="footer">
+				<h1><em>Web Programming Step by Step</em>, Lecture 6-A</h1>
+				<h2>Positioning</h2>
+			</div>
+		</div>
+
+		<div class="presentation">
+			<div class="slide">
+				<h1><a href="http://www.facebook.com/ali.asif67">Web Programming Step by Step</a></h1>
+				<h3>Lecture 6-A <br /> Positioning</h3>
+				<h4>Reading: 4.4</h4>
+
+				<p class="license">
+					Except where otherwise noted, the contents of this presentation are Copyright 2018 Hafiz Muhammad Asif.
+				</p>
+
+				<div class="w3c">
+					<a href="http://validator.w3.org/check/referer"><img src="images/w3c-xhtml11.png" alt="Valid XHTML 1.1" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="images/w3c-css.png" alt="Valid CSS!" /></a>
+				</div>
+			</div>
+
+
+
+			<div class="slide titleslide">
+				<h1>4.4: Sizing and Positioning</h1>
+				
+				<ul>
+					<li>
+						4.1: Styling Page Sections
+					</li>
+					<li>
+						4.2: Introduction to Layout
+					</li>
+					<li>
+						4.3: Floating Elements
+					</li>
+					<li>
+						<strong>4.4: Sizing and Positioning</strong>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					The <a href="http://www.w3schools.com/css/pr_class_position.asp"><code>position</code></a> property
+					(<a href="http://www.w3schools.com/css/css_positioning.asp">examples</a>)
+					<span class="readingsection">(4.4.2)</span>
+				</h1>
+
+				<div class="example">
+<pre class="examplecode css">
+div#ad {
+	<em>position: fixed;</em>
+	right: 10%;
+	top: 45%;
+}
+</pre>
+
+					<div class="exampleoutput insertoutput">
+						<div id="ad">Here I am!</div>
+					</div>
+				</div>
+
+				<table class="standard">
+					<tr>
+						<th>
+							property
+						</th>
+						<th>
+							value
+						</th>
+						<th>
+							description
+						</th>
+					</tr>
+
+					<tr>
+						<td rowspan="5">
+							<code>position</code>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<code>static</code>
+						</td>
+						<td>
+							default position
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<code>relative</code>
+						</td>
+						<td>
+							offset from its normal static position
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<code>absolute</code>
+						</td>
+						<td>
+							a fixed position <em>within its containing element</em>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<code>fixed</code>
+						</td>
+						<td>
+							a fixed position <em>within the browser window
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<a href="http://www.w3schools.com/css/pr_pos_top.asp"><code>top</code></a>,
+							<a href="http://www.w3schools.com/css/pr_pos_bottom.asp"><code>bottom</code></a>, <br />
+							<a href="http://www.w3schools.com/css/pr_pos_left.asp"><code>left</code></a>,
+							<a href="http://www.w3schools.com/css/pr_pos_right.asp"><code>right</code></a>
+						</td>
+						<td colspan="2">
+							positions of box's corners
+						</td>
+					</tr>
+				</table>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Absolute positioning</h1>
+
+<pre class="examplecode css">
+#menubar {
+	<em>position: absolute;</em>
+	left: 400px;
+	top: 50px;
+}
+</pre>
+
+				<div class="rightfigure">
+					<img src="images/absoluteposition.png" alt="absolute positioning" style="width: 100%;" />
+				</div>
+
+				<ul>
+					<li>removed from normal flow (like floating ones)</li>
+					<li>positioned relative to the block element containing them (assuming that block also uses <code>absolute</code> or <code>relative</code> positioning)</li>
+					<li>actual position determined by <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code> values</li>
+					<li>should often specify a <code>width</code> property as well</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Relative positioning</h1>
+
+<pre class="examplecode css">
+#area2 { <em>position: relative;</em> }
+</pre>
+
+				<div class="rightfigure">
+					<img src="images/relativeposition.png" alt="absolute positioning" style="width: 100%;" />
+				</div>
+
+				<ul>
+					<li>absolute-positioned elements are normally positioned at an offset from the corner of the overall web page</li>
+					<li>to instead cause the absolute element to position itself relative to some other element's corner, wrap the <code>absolute</code> element in an element whose <code>position</code> is <code>relative</code></li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Fixed positioning</h1>
+
+				<div class="rightfigure">
+					<img src="images/fixedposition.png" alt="fixed positioning" style="width: 100%;" />
+				</div>
+
+				<ul>
+					<li>removed from normal flow (like floating ones)</li>
+					<li>positioned relative to the browser window
+						<ul>
+							<li>
+								even when the user scrolls the window, element will remain in the same place
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Alignment vs. float vs. position</h1>
+
+				<ol>
+					<li>if possible, lay out an element by <em>aligning</em> its content
+						<ul>
+							<li>horizontal alignment: <code>text-align</code>
+								<ul>
+									<li>set this on a block element; it aligns the content within it (not the block element itself)</li>
+								</ul>
+							</li>
+							<li>vertical alignment: <code>vertical-align</code>
+								<ul>
+									<li>set this on an inline element, and it aligns it vertically within its containing element</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>if alignment won't work, try <em>floating</em> the element</li>
+					<li>if floating won't work, try <em>positioning</em> the element
+						<ul>
+							<li>absolute/fixed positioning are a last resort and should not be overused</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>The <a href="http://www.w3schools.com/css/pr_pos_vertical-align.asp"><code>vertical-align</code></a> property</h1>
+
+				<table class="standard">
+					<tr>
+						<th>
+							property
+						</th>
+						<th>
+							description
+						</th>
+					</tr>
+
+					<tr>
+						<td>
+							<code>vertical-align</code>
+						</td>
+						<td>
+							specifies where an inline element should be aligned vertically, with respect to other content on the same line within its block element's box
+						</td>
+					</tr>
+				</table>
+
+				<ul>
+					<li><img src="images/baseline.jpg" alt="baseline" style="float: right; margin-left: 40px;" />can be <code>top</code>, <code>middle</code>, <code>bottom</code>, <code>baseline</code> (default), <code>sub</code>, <code>super</code>, <code>text-top</code>, <code>text-bottom</code>, or a length value or <code>%</code>
+						<ul>
+							<li><code>baseline</code> means aligned with bottom of non-hanging letters</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1><code>vertical-align</code> example</h1>
+
+				<div class="example">
+<pre class="examplecode html" style="font-size: smaller">
+&lt;p style=&quot;background-color: yellow;&quot;&gt;
+&lt;span style=&quot;<em>vertical-align: top;</em> border: 1px solid red;&quot;&gt;
+Don't be sad!  Turn that frown
+&lt;img src=&quot;images/sad.jpg&quot; alt=&quot;sad&quot; /&gt; upside down!
+&lt;img style=&quot;<em>vertical-align: bottom</em>&quot; src=&quot;images/smiley.jpg&quot; alt=&quot;smile&quot; /&gt;
+Smiling burns calories, you know.
+&lt;img style=&quot;<em>vertical-align: middle</em>&quot; src=&quot;images/puppy.jpg&quot; alt=&quot;puppy&quot; /&gt;
+Anyway, look at this cute puppy; isn't he adorable!  So cheer up,
+and have a nice day.  The End.
+&lt;/span&gt;&lt;/p&gt;
+</pre>
+
+					<div class="exampleoutput insertoutput"></div>
+				</div>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Common bug: space under image</h1>
+
+				<div class="example">
+<pre class="examplecode html">
+&lt;p style=&quot;background-color: red; padding: 0px; margin: 0px&quot;&gt;
+&lt;img src=&quot;images/smiley.png&quot; alt=&quot;smile&quot; /&gt;
+&lt;/p&gt;
+</pre>
+
+					<div class="exampleoutput insertoutput"></div>
+				</div>
+
+				<ul>
+					<li>red space under the image, despite <code>padding</code> and <code>margin</code> of 0</li>
+					<li>this is because the image is vertically aligned to the baseline of the paragraph (not the same as the bottom)</li>
+					<li>setting <code>vertical-align</code> to <code>bottom</code> fixes the problem (so does setting <code>line-height</code> to <code>0px</code>)</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>Details about inline boxes</h1>
+
+				<ul>
+					<li>size properties (<code>width</code>, <code>height</code>, <code>min-width</code>, etc.) are ignored for inline boxes</li>
+					<li><code>margin-top</code> and <code>margin-bottom</code> are ignored, but <code>margin-left</code> and <code>margin-right</code> are not</li>
+					<li>the containing block box's <code>text-align</code> property controls horizontal position of inline boxes within it
+						<ul>
+							<li>text-align does not align block boxes within the page</li>
+						</ul>
+					</li>
+					<li>each inline box's <code>vertical-align</code> property aligns it vertically within its block box
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="slide">
+				<h1>
+					The <a href="http://www.w3schools.com/css/pr_class_display.asp"><code>display</code></a> property
+					<span class="readingsection">(4.4.4)</span>
+				</h1>
+
+				<div class="example">
+<pre class="examplecode css">
+h2 { <em>display: inline;</em> background-color: yellow; }
+</pre>
+
+					<div class="exampleoutput insertoutput">
+						<h2>This is a heading</h2>
+						<h2>This is another heading</h2>
+					</div>
+				</div>
+
+				<table class="standard">
+					<tr>
+						<th>
+							property
+						</th>
+						<th>
+							description
+						</th>
+					</tr>
+					
+					<tr>
+						<td>
+							<code>display</code>
+						</td>
+						<td>
+							sets the type of CSS box model an element is displayed with
+						</td>
+					</tr>
+				</table>
+				
+				<ul>
+					<li>values: <code>none</code>, <code>inline</code>, <code>block</code>, <code>run-in</code>, <code>compact</code>, ...</li>
+					<li>use sparingly, because it can radically alter the page layout</li>
+				</ul>
+			</div>
+			
+			
+			
+			<div class="slide">
+				<h1>Displaying block elements as inline</h1>
+
+				<div class="example">
+<pre class="examplecode html">
+&lt;ul id=&quot;topmenu&quot;&gt;
+	&lt;li&gt;Item 1&lt;/li&gt;
+	&lt;li&gt;Item 2&lt;/li&gt;
+	&lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+<pre class="examplecode css">
+#topmenu li {
+	<em>display: inline;</em>
+	border: 2px solid gray;
+	margin-right: 1em;
+}
+</pre>
+
+					<div class="exampleoutput insertoutput"></div>
+				</div>
+
+				<ul>
+					<li>lists and other block elements can be displayed inline
+						<ul>
+							<li>flow left-to-right on same line</li>
+							<li>width is determined by content (block elements are 100% of page width)</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<!-- absolute pos and 100% body size -->
+
+			<div class="slide">
+				<h1>The <a href="http://www.w3schools.com/css/pr_class_visibility.asp"><code>visibility</code></a> property</h1>
+
+				<div class="example">
+<pre class="examplecode css">
+p.secret {
+	<em>visibility: hidden;</em>
+}
+</pre>
+
+					<div class="exampleoutput insertoutput">
+						<p class="secret">
+							Since nobody can see this anyway: ca-ca poo-poo pee-pee!!!
+						</p>
+					</div>
+				</div>
+
+				<table class="standard">
+					<tr>
+						<th>
+							property
+						</th>
+						<th>
+							description
+						</th>
+					</tr>
+					
+					<tr>
+						<td>
+							<code>visibility</code>
+						</td>
+						<td>
+							sets whether an element should be shown onscreen; <br />
+							can be <code>visible</code> (default) or <code>hidden</code>
+						</td>
+					</tr>
+				</table>
+				
+				<ul>
+					<li>
+						<code>hidden</code> elements will still take up space onscreen, but will not be shown
+						<ul>
+							<li>to make it not take up any space, set <code>display</code> to <code>none</code> instead</li>
+						</ul>
+					</li>
+					<li>can be used to show/hide dynamic HTML content on the page in response to events</li>
+				</ul>
+			</div>
+
+
+
+
+		</div>
+
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+					document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				}
+			}
+		</script>
+
+		<script type="text/javascript">
+			if (location.href.match(/http:\/\//)) {
+				if (!location.href.match(/localhost/)) {
+					var pageTracker = _gat._getTracker("UA-2729135-5");
+					pageTracker._initData();
+					pageTracker._trackPageview();
+				}
+			}
+		</script>
+	</body>
+
+<!-- Mirrored from courses.cs.washington.edu/courses/cse190m/10su/lectures/slides/lecture06a-position.shtml by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jan 2018 10:55:05 GMT -->
+</html>
+
